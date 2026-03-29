@@ -38,16 +38,6 @@
         android:columnCount="3"
         android:rowCount="3">
 
-<!--        <ImageView android:id="@+id/img0" style="@style/gameImage"/>-->
-<!--        <ImageView android:id="@+id/img1" style="@style/gameImage"/>-->
-<!--        <ImageView android:id="@+id/img2" style="@style/gameImage"/>-->
-<!--        <ImageView android:id="@+id/img3" style="@style/gameImage"/>-->
-<!--        <ImageView android:id="@+id/img4" style="@style/gameImage"/>-->
-<!--        <ImageView android:id="@+id/img5" style="@style/gameImage"/>-->
-<!--        <ImageView android:id="@+id/img6" style="@style/gameImage"/>-->
-<!--        <ImageView android:id="@+id/img7" style="@style/gameImage"/>-->
-<!--        <ImageView android:id="@+id/img8" style="@style/gameImage"/>-->
-
         <ImageView
             android:id="@+id/jablko1"
             android:layout_width="100dp"

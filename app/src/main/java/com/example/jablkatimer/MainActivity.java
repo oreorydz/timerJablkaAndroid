@@ -1,24 +1,103 @@
 package com.example.jablkatimer;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView scoreText, timerText;
+    Button startButton;
+    GridLayout gridLayout;
+    ImageView[] images;
+
+    int score = 0;
+    int timeLeft = 15;
+    CountDownTimer timer;
+    Random random = new Random();
+
+    int currentVisible = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        scoreText = findViewById(R.id.scoreText);
+        timerText = findViewById(R.id.timerText);
+        startButton = findViewById(R.id.startButton);
+        gridLayout = findViewById(R.id.grid);
+
+        images = new ImageView[gridLayout.getChildCount()];
+
+        for (int i = 0; i < gridLayout.getChildCount(); i++) {
+            images[i] = (ImageView) gridLayout.getChildAt(i);
+            images[i].setVisibility(View.INVISIBLE);
+
+            final int index = i;
+            images[i].setOnClickListener(v -> {
+                if (index == currentVisible) {
+                    score++;
+                    scoreText.setText("Pkt: " + score);
+                    showRandomImage();
+                }
+            });
+        }
+
+        startButton.setOnClickListener(v -> startGame());
+    }
+
+    private void startGame() {
+        score = 0;
+        timeLeft = 15;
+
+        scoreText.setText("Pkt: 0");
+        timerText.setText("Czas: 15");
+
+        startButton.setEnabled(false);
+
+        startTimer();
+        showRandomImage();
+    }
+
+    private void startTimer() {
+        timer = new CountDownTimer(15000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeft = (int) (millisUntilFinished / 1000);
+                timerText.setText("Czas: " + timeLeft);
+            }
+
+            @Override
+            public void onFinish() {
+                timerText.setText("Czas: 0");
+                endGame();
+            }
+        }.start();
+    }
+
+    private void showRandomImage() {
+        for (ImageView img : images) {
+            img.setVisibility(View.INVISIBLE);
+        }
+
+        currentVisible = random.nextInt(images.length);
+        images[currentVisible].setVisibility(View.VISIBLE);
+    }
+
+    private void endGame() {
+        for (ImageView img : images) {
+            img.setVisibility(View.INVISIBLE);
+        }
+
+        startButton.setEnabled(true);
     }
 }
