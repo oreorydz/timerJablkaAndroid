@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pkt: 0"
+        android:textSize="24sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Czas: 15"
+        android:textSize="24sp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Game"
+        android:layout_marginBottom="16dp"/>
+
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="3">
+
+<!--        <ImageView android:id="@+id/img0" style="@style/gameImage"/>-->
+<!--        <ImageView android:id="@+id/img1" style="@style/gameImage"/>-->
+<!--        <ImageView android:id="@+id/img2" style="@style/gameImage"/>-->
+<!--        <ImageView android:id="@+id/img3" style="@style/gameImage"/>-->
+<!--        <ImageView android:id="@+id/img4" style="@style/gameImage"/>-->
+<!--        <ImageView android:id="@+id/img5" style="@style/gameImage"/>-->
+<!--        <ImageView android:id="@+id/img6" style="@style/gameImage"/>-->
+<!--        <ImageView android:id="@+id/img7" style="@style/gameImage"/>-->
+<!--        <ImageView android:id="@+id/img8" style="@style/gameImage"/>-->
+
+        <ImageView
+            android:id="@+id/jablko1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+
+        <ImageView
+            android:id="@+id/jablko2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+
+        <ImageView
+            android:id="@+id/jablko3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+
+        <ImageView
+            android:id="@+id/jablko4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+
+        <ImageView
+            android:id="@+id/jablko5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+        <ImageView
+            android:id="@+id/jablko6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+
+        <ImageView
+            android:id="@+id/jablko7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+
+        <ImageView
+            android:id="@+id/jablko8"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+
+        <ImageView
+            android:id="@+id/jablko9"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jabko" />
+
+    </GridLayout>
+
+</LinearLayout>
